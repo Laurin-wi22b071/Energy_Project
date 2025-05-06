@@ -6,10 +6,9 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
-public class BookRepository {
+public class EnergyRepository {
     private Map<Integer, Book> booksyById = new HashMap<>(Map.of(
             1, new Book(1, "An unexpected Journey", "Fantasy"),
             2, new Book(2, "Harry Potter", "Trottel")
