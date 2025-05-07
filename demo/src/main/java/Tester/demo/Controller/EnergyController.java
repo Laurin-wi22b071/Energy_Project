@@ -1,6 +1,5 @@
 package Tester.demo.Controller;
 
-import Tester.demo.dto.Book;
 import Tester.demo.repository.EnergyRepository;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
