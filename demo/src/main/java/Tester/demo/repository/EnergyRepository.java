@@ -4,51 +4,27 @@ import Tester.demo.dto.Energy;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class EnergyRepository {
-    private Map<LocalDateTime, Energy> energieByTime = new HashMap<>(Map.of(
-            1, new Energy(1, "An unexpected Journey", "Fantasy"),
-            2, new Energy(2, "Harry Potter", "Trottel")
+    private Map<Integer, Energy> energieByTime = new HashMap<>(Map.of(
+            1, new Energy(1, LocalDateTime.of(2024, 1, 25, 15, 30), 14),
+            2, new Energy(2, LocalDateTime.of(2024, 2, 25, 15, 30), 1241),
+            3, new Energy(3, LocalDateTime.of(2024, 3, 25, 15, 30), 1240),
+            4, new Energy(4, LocalDateTime.of(2024, 4, 25, 15, 30), 1040),
+            5, new Energy(5, LocalDateTime.now(), 420)
     ));
 
-    /*
-    public void saveEnergy(Energy energy) {
-        booksyById.put(energy.getTid(), energy);
-    }
-    */
-
-    public Energy findByTid(int tid) {
-        return booksyById.get(tid);
+    public Energy getCurrent() {
+        int maxKey = Collections.max(energieByTime.keySet());
+        return energieByTime.get(maxKey);
     }
 
-    public List<Energy> findAll() {
-        return booksyById.values().stream().toList();
+    public Energy getHistoric(int index) {
+        return energieByTime.get(index);
     }
-
-    public void deleteByTid(int tid) {
-        booksyById.remove(tid);
-    }
-
-    public void updateByTid(int tid, Energy energy) {
-        booksyById.put(tid, energy);
-    }
-
-
-    // -> Methoden die im controller benutzt werden.
-    public Energy findCurrent() {
-        return energiesByTime.isEmpty() ? null : energiesByTime.lastEntry().getValue();
-    }
-
-    public List<Energy> findHistoric(LocalDateTime from, LocalDateTime to) {
-        return new ArrayList<>(energiesByTime.subMap(from, true, to, true).values());
-    }
-
-    public void saveEnergy(Energy energy) {
-        energiesByTime.put(energy.getTime(), energy);
-    }
-
 }

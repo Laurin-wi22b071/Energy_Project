@@ -9,7 +9,7 @@ public class Energy {
 
     public Energy() {}
 
-    public Energy(int tid, LocalDateTime time, double energyCapacity, String genre) {
+    public Energy(int tid, LocalDateTime time, double energyCapacity) {
         this.tid = tid;
         this.time = time;
         this.energyCapacity = energyCapacity;
