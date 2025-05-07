@@ -1,38 +1,30 @@
 package Tester.demo.repository;
 
-import Tester.demo.dto.Book;
+import Tester.demo.dto.Energy;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class EnergyRepository {
-    private Map<Integer, Book> booksyById = new HashMap<>(Map.of(
-            1, new Book(1, "An unexpected Journey", "Fantasy"),
-            2, new Book(2, "Harry Potter", "Trottel")
+    private Map<Integer, Energy> energieByTime = new HashMap<>(Map.of(
+            1, new Energy(1, LocalDateTime.of(2024, 1, 25, 15, 30), 14),
+            2, new Energy(2, LocalDateTime.of(2024, 2, 25, 15, 30), 1241),
+            3, new Energy(3, LocalDateTime.of(2024, 3, 25, 15, 30), 1240),
+            4, new Energy(4, LocalDateTime.of(2024, 4, 25, 15, 30), 1040),
+            5, new Energy(5, LocalDateTime.now(), 420)
     ));
 
-    public void saveBook(Book book) {
-        booksyById.put(book.getTid(), book);
+    public Energy getCurrent() {
+        int maxKey = Collections.max(energieByTime.keySet());
+        return energieByTime.get(maxKey);
     }
 
-    public Book findByTid(int tid) {
-        return booksyById.get(tid);
+    public Energy getHistoric(int index) {
+        return energieByTime.get(index);
     }
-
-    public List<Book> findAll() {
-        return booksyById.values().stream().toList();
-    }
-
-    public void deleteByTid(int tid) {
-        booksyById.remove(tid);
-    }
-
-    public void updateByTid(int tid, Book book) {
-        booksyById.put(tid, book);
-    }
-
-
 }
