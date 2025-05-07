@@ -9,7 +9,7 @@
 
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="267.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="org.example.demjavafxbb.HelloController">
+fx:controller="org.example.javafx.HelloController">
    <children>
       <TextField fx:id="tfNum1" promptText="Number 1">
          <VBox.margin>
