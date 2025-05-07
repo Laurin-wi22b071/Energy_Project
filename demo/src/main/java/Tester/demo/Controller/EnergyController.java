@@ -1,6 +1,7 @@
 package Tester.demo.Controller;
 
 import Tester.demo.dto.Book;
+import Tester.demo.repository.EnergyRepository;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,7 @@ public class EnergyController {
         return energyRepository.findHistoric(from, to);
     }
 
+    /*
     @DeleteMapping("/{id}")
     public void deleteBookByID(@PathVariable int id) {
         this.bookRepository.deleteByTid(id);
@@ -44,5 +46,5 @@ public class EnergyController {
     public void updateBookByID(@PathVariable int id, @RequestBody Book book) {
         this.bookRepository.updateByTid(id, book);
     }
-
+       */
 }
